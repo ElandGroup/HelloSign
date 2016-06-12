@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Sign";
+    Layout = null;
+}
+<head>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script>
+        $(function () {
+            $("#btnSign").on("click", function () {
+                $.post('@Url.Action("PostUrl", "Home")', "", function (data) {
+                    $("#lblMessage").text(data.Data);
+                });
+            });
+
+            $("#btnSign2").on("click", function () {
+                $.post('@Url.Action("PostUrl2", "Home")', "", function (data) {
+                    $("#lblMessage").text(data.Data);
+                });
+            });
+       
+    });
+    </script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<div style="margin-top:100px;margin-left:200px">
+    <button id="btnSign">Check Sign</button>
+    <button id="btnSign2">Check Sign(wrong key)</button>
+    <br/>
+    <h3  style="display:inline-block" >Sign status:</h3><h2 style="display:inline-block" id="lblMessage"></h2>
+</div>
+
+
+
+
